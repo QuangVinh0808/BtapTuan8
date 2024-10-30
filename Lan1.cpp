@@ -21,9 +21,16 @@ node taoNode(int _mu, int _heso)
 
 void display(node head){
     while(head != NULL){
-        cout << head->heso << "x^" << head->mu;
-        if(head->next && head->next->heso > 0) cout << " + ";
-        head = head->next;
+        if(head->mu == 0){ 
+            cout << head->heso;
+            return;
+        }
+        else
+        {
+            cout << head->heso << "x^" << head->mu;
+            if(head->next && head->next->heso > 0) cout << " + ";
+            head = head->next;
+        }
     }
     
 }
@@ -51,6 +58,7 @@ int main()
     for(int i = n; i >= 0; i--)
     {
         int x; // he so
+        cout << "Nhap he so cua x^" << i << ' ';
         cin >> x;
         themNode(head, i, x);
     }
